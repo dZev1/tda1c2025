@@ -4,10 +4,11 @@ import "fmt"
 
 func main() {
 	C := []int{6, 12, 6}
-	k := 11
+	k := 12
 	parcial := []int{}
-	soluciones := solve(C, k, parcial, [][]int{})
 
+	soluciones := solve(C, k, parcial, [][]int{})
+	
 	fmt.Println(soluciones)
 
 }
