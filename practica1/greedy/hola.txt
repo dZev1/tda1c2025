@@ -1,0 +1,8 @@
+# mex(X) ya definida
+
+fn MaxMex(v)
+Entrada: Vector {a1,a2,...,an}
+Salida: permutacion de v que maximiza Suma_i=1^n mex({b1...bi})
+
+1. CountingSort(v)
+2. retornar v 
