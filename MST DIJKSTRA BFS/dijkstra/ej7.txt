@@ -1,0 +1,17 @@
+Entrada:
+    * G digrafo (V,E)
+    * s, t vértices origen y fin del camino s->t
+    * c cota que no debe superar el camino s->t
+Salida: eMax arista de peso maximo que se encuentra en algun recorrido  recorrido R: s->t tal que P(R) <= c
+
+1. Ds <- Dijkstra(G, s) // Dijkstra sobre G con source s
+2. Gt <- Invierto las direcciones del grafo G // (a,b) en G ~~> (b,a) en G con el mismo peso.
+3. Dt <- Dijkstra(Gt, t) // Dijkstra sobre el grafo invertido con source t
+4. peso <- -1 // No hay pesos negativos
+5. eMax <- nil
+6. Para cada arista (u,v) en E(G):
+    si Ds[u] + W(u,v) + Dt[v] <= c:
+        si peso <= W(u,v):
+            peso = W(u,v)
+            eMax = (u,v)
+7. retornar eMax

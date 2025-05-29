@@ -1,0 +1,14 @@
+Entrada: S conjunto de secuencias X1,..., Xn de tamaño k c/u
+Salida: AGM de G, el grafo asociado al conjunto S.
+
+1. Armo la matriz de distancias de G.
+    para i=0...i=n:
+        para j=0...j=n:
+            distancia = 0
+            para a=0...a=k:
+                distancia += |S[i][a] - S[j][a]|
+            G[i][j] = distancia
+            G[j][i] = distancia
+// O(k * V^2)
+2. AGM = Prim(G) // O(V^2)
+3. Retornar AGM

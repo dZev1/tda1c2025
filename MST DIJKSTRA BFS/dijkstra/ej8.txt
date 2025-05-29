@@ -1,0 +1,22 @@
+Entrada:
+    * G digrafo (V,E)
+    * s, t vértices de G
+Salida: R recorrido mínimo s->t tal que pasa por a lo sumo una arista negativa.
+
+1. G' <- Quitamos aristas negativas de G // G' = G \ {(u,v) : w(u,v) < 0}
+2. Ds <- Dijkstra(G', s)
+3. Gt' <- G' invertido // (u,v) en G' ~~> (v,u) Gt', manteniendo el peso
+4. Dt <- Dijkstra(Gt', t)
+5. mejorCaminoSinNegativas <- Ds[t]
+6. mejorConUnaNegativa <- +inf
+7. mejorAristaNegativa <- nil
+8. para cada arista (u,v) en E(G):
+    si W(u,v) < 0:
+        pesoTotal <- Ds[u] + W(u,v) + Dt[v]
+        si pesoTotal < mejorConUnaNegativa:
+            mejorConUnaNegativa <- pesoTotal
+            mejorAristaNegativa <- (u,v)
+9. Si mejorConUnaNegativa < mejorCaminoSinNegativas:
+    retornar camino(prev_s, s, mejorAristaNegativa[0]) + [mejorAristaNegativa[1]] + caminoInverso(prev_t, t, mejorAristaNegativa[1])
+   sino:
+    retornar nil
