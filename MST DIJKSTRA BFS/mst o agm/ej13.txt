@@ -1,0 +1,19 @@
+Entrada: G grafo
+Salida: res, valor maximo tal que G_k es el subgrafo generador de G conexo.
+
+
+G' = invertirPesos(G) // (u,v) = k ~~> (u,v) = -k
+k = -1 * min(Prim(G'))
+E = E(G)
+res = k
+
+for i=0...i=k: //G0,G1,G2,...,Gk
+    for (u,v) in E:
+        if W(u,v) < i:
+            E = E \ (u,v)
+    if !esConexo(G):
+        res = i - 1
+return res
+
+// O(EV^2 + kE)
+
