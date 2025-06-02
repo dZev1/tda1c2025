@@ -1,0 +1,15 @@
+MaxDist(T, u, v)
+
+1. ancestroComunMasBajo <- EncontrarLCA(u, v) 
+2. d1 <- DistanciaDesde(ancestroComunMasBajo, u, 0)
+3. d2 <-DistanciaDesde(ancestroComunMasBajo, v, 0)
+4. retornar d1 + d2
+
+DistanciaDesde(lca, u, d):
+    if lca == u:
+        return d
+    izq = DistanciaDesde(lca.left, u, d + 1)
+    if izq != -1:
+        return izq
+    der = DistanciaDesde(lca.right, u, d + 1)
+    return der

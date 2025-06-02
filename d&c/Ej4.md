@@ -63,3 +63,25 @@ $ f(\frac{n}{2}) \leq r * f(n)$
 $ \frac{n}{2} \leq r * n $
 lo cual es cierto para r = 0.8
 $∴ T(n) = Θ(n)$
+
+## g)
+
+$T(n) = T(\frac{n}{2}) + \sqrt{n}$
+
+$ a = 1, b = 2, f(n) = \sqrt{n} $
+
+$log_b(a) = log_2(1) = 0$
+
+$f(n) = \sqrt{n} \in Ω(n^{1/2})$ y $ \frac{1}{2} > 0 = log_2(1) $
+Entonces estamos ante el caso 3. Resta ver si se cumple
+$a * f(\frac{n}{b}) \leq k * f(n)$
+$ 1 * f(\frac{n}{2}) \leq k f(n) \iff \sqrt{\frac{n}{2}} \leq k \sqrt{n}$ para algun k < 1.
+Esto se cumple para k = 0.9 entonces,
+$ T(n) = \Theta(\sqrt{n}) $
+
+## 10)
+
+$ T(n) = 2T(\frac{n}{2}) + log \ n $
+$ a = 2, b = 2, f(n) = log \ n $
+$ log_2(2) = 1 $
+$ f(n) = log \ n = O(n^{0.999}) $ y $ 0.999 < log_2(2) = 1 \longrightarrow T(n) = \Theta(n^1) = \Theta(n) $
