@@ -1,0 +1,12 @@
+Memo = { (i,T) : False/True} 
+cc(M, i, T):
+    if (T == 0):
+        return True
+    if (T != 0 && i == |M|):
+        return False
+    if ((i,T) in Memo):
+        return Memo[(i,T)]
+    
+    res = cc(M, i + 1, T - M[i]) || cc(M, i + 1, T)
+    Memo[(i, T)] = res
+    return Memo[(i, T)]
